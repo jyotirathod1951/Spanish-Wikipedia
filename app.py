@@ -62,38 +62,16 @@ elif page == "Graphs":
     st.title("Graphs and Analysis")
 
     st.write(
-        "Here are multiple example graphs — you can replace with your own data!"
+        "Here’s a simple example graph — you can add your own data!"
     )
 
-    # Dummy example data
+    # Dummy example data for plotting
     categories = ['NEds', 'NDays', 'NPages', 'NActDays']
     values = [10, 30, 45, 20]
 
-    # 📊 Bar Chart
-    st.subheader("Bar Chart Example")
-    fig_bar, ax_bar = plt.subplots(figsize=(6,4))
-    ax_bar.bar(categories, values, color=['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'])
-    ax_bar.set_title('Feature Distribution (Bar)')
-    ax_bar.set_ylabel('Count')
-    st.pyplot(fig_bar)
-
-    # 🥧 Pie Chart
-    st.subheader("Pie Chart Example")
-    fig_pie, ax_pie = plt.subplots(figsize=(6,4))
-    ax_pie.pie(values, labels=categories, autopct='%1.1f%%', startangle=90,
-               colors=['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'])
-    ax_pie.set_title('Feature Distribution (Pie)')
-    st.pyplot(fig_pie)
-
-    # 📈 Line Plot
-    st.subheader("Line Plot Example")
-    fig_line, ax_line = plt.subplots(figsize=(6,4))
-    ax_line.plot(categories, values, marker='o', color='purple')
-    ax_line.set_title('Feature Trend (Line)')
-    ax_line.set_ylabel('Count')
-    ax_line.grid(True)
-    st.pyplot(fig_line)
-
-    st.success(
-        "✅ You can replace these dummy values with your own data and customize as needed!"
-    )
+    # Plot with Matplotlib
+    fig, ax = plt.subplots(figsize=(6,4))
+    ax.bar(categories, values, color=['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'])
+    ax.set_title('Feature Distribution Example')
+    ax.set_ylabel('Count')
+    st.pyplot(fig)
